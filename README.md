@@ -129,6 +129,8 @@ license_plate 0.0 0 -1.0 257.78 173.58 381.48 231.23 0 0 0 0 0 0
 ### Visualizing YOLO vs KITTI
 To ensure correctness, you can visualize the bounding boxes in both formats on the image using visualize_kitti_labels.py
 
+**yolo label :** `license_plate 0.0 0 -1.0 257.78 173.58 381.48 231.23 0 0 0 0 0 0`
+**kitti label :** `0 0.4994212962962963 0.4216820987654321 0.19328703703703703 0.12011316872427984`
 #### command to visualise KITTI dataset
 ```
 python visualize_kitti_labels.py \
@@ -145,6 +147,7 @@ python visualize_yolo_labels.py \
     --output-folder "./result_viz_yolo" \
     --class-names "licence plate"
 ```
+
 <div style="text-align: center;">
 <table>
   <tr>
