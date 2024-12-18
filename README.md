@@ -1,4 +1,4 @@
-# YOLO to KITTI Label Converter
+# YOLO to KITTI Dataset Converter
 
 This repository contains a Python script to convert YOLO-format labels into KITTI-format labels. It is designed for datasets that include image files and YOLO label files. The script maps class IDs to custom class names and ensures compatibility with the KITTI format by utilizing the dimensions of the corresponding images.
 
