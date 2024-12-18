@@ -149,11 +149,11 @@ python visualize_yolo_labels.py \
 <table>
   <tr>
     <td style="text-align: center;">
-      <img src="https://github.com/user-attachments/assets/055e2fc3-02e0-4f98-b5e1-a4db4d8db593" alt="KITTI Dataset Sample" width="300">
+      <img src="https://github.com/user-attachments/assets/055e2fc3-02e0-4f98-b5e1-a4db4d8db593" alt="KITTI Dataset Sample" width="400">
       <p>KITTI Dataset Sample</p>
     </td>
     <td style="text-align: center;">
-      <img src="https://github.com/user-attachments/assets/baee6e32-c4c9-4a2e-821e-ecb2dbda9032" alt="YOLO Dataset Sample" width="300">
+      <img src="https://github.com/user-attachments/assets/baee6e32-c4c9-4a2e-821e-ecb2dbda9032" alt="YOLO Dataset Sample" width="400">
       <p>YOLO Dataset Sample</p>
     </td>
   </tr>
