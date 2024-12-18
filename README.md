@@ -2,6 +2,8 @@
 
 This repository contains a Python script to convert YOLO-format labels into KITTI-format labels. It is designed for datasets that include image files and YOLO label files. The script maps class IDs to custom class names and ensures compatibility with the KITTI format by utilizing the dimensions of the corresponding images.
 
+![license_plate 0 0 0 -1 0 257 78 173 58 381 48 231 23 0 0 0 0 0 0(1)](https://github.com/user-attachments/assets/db6a489c-0695-4b97-af23-3f8b3e1f6a73)
+
 ---
 
 ## Features
