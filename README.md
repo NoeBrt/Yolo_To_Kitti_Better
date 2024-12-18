@@ -75,7 +75,91 @@ For example:
 ```
 license_plate 0.0 0 -1.0 45.00 60.00 100.00 120.00 0 0 0 0 0 0
 ```
+## Process
 
+### You Have a Dataset with YOLO Labels
+In YOLO format, each label file (e.g., `0000.txt`) contains lines of annotation in the following structure:
+```
+<class_id> <x_center> <y_center> <width> <height>
+```
+- **`class_id`**: The class index (e.g., `0` for `license_plate`).
+- **`x_center`**, **`y_center`**: Normalized coordinates (values between 0 and 1) representing the center of the bounding box.
+- **`width`**, **`height`**: Normalized width and height of the bounding box.
+
+### Example
+Imagine the YOLO label file `0000.txt` containing:
+```
+0 0.4994212962962963 0.4216820987654321 0.19328703703703703 0.12011316872427984
+```
+- `class_id = 0` → Corresponds to the `license_plate` class.
+- `x_center = 0.499421`
+- `y_center = 0.421682`
+- `width = 0.193287`
+- `height = 0.120113`
+
+Assume the corresponding image `0000.jpg` has dimensions **image_width = 512**, **image_height = 384**.
+
+### Conversion Process
+To convert YOLO to KITTI, the following formulas are used:
+1. **Calculate Absolute Coordinates**:
+   - \( x_{\text{left}} = (x_{\text{center}} - \frac{\text{width}}{2}) \times \text{image\_width} \)
+   - \( y_{\text{top}} = (y_{\text{center}} - \frac{\text{height}}{2}) \times \text{image\_height} \)
+   - \( x_{\text{right}} = (x_{\text{center}} + \frac{\text{width}}{2}) \times \text{image\_width} \)
+   - \( y_{\text{bottom}} = (y_{\text{center}} + \frac{\text{height}}{2}) \times \text{image\_height} \)
+
+2. **Map Class ID to Name**:
+   - Use the provided `class_mapping` JSON to map `0` → `license_plate`.
+
+### Calculation for `0000.txt`:
+Using the formulas above:
+- \( x_{\text{left}} = (0.499421 - \frac{0.193287}{2}) \times 512 = 257.78 \)
+- \( y_{\text{top}} = (0.421682 - \frac{0.120113}{2}) \times 384 = 173.58 \)
+- \( x_{\text{right}} = (0.499421 + \frac{0.193287}{2}) \times 512 = 381.48 \)
+- \( y_{\text{bottom}} = (0.421682 + \frac{0.120113}{2}) \times 384 = 231.23 \)
+
+The KITTI format line becomes:
+```
+license_plate 0.0 0 -1.0 257.78 173.58 381.48 231.23 0 0 0 0 0 0
+```
+
+---
+
+## Verification
+
+### Visualizing YOLO vs KITTI
+To ensure correctness, you can visualize the bounding boxes in both formats on the image using visualize_kitti_labels.py
+
+#### command to visualise KITTI dataset
+```
+python visualize_kitti_labels.py \
+    --image-folder "path/to/images" \
+    --kitti-folder "path/to/kitty/labels" \
+    --output-folder "result_viz"
+```
+
+#### command to visualise YOLO dataset
+```
+python visualize_yolo_labels.py \
+    --image-folder "/path/to/image" \
+    --label-folder "/path/to/yolo/labels" \
+    --output-folder "./result_viz_yolo" \
+    --class-names "licence plate"
+```
+
+<div style="display: flex; justify-content: space-between;">
+
+<div style="text-align: center; margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/055e2fc3-02e0-4f98-b5e1-a4db4d8db593" alt="KITTI Dataset Sample" width="45%" />
+  <p>KITTI Dataset Sample</p>
+</div>
+
+<div style="text-align: center; margin-left: 10px;">
+  <img src="https://github.com/user-attachments/assets/baee6e32-c4c9-4a2e-821e-ecb2dbda9032" alt="YOLO Dataset Sample" width="45%" />
+  <p>YOLO Dataset Sample</p>
+</div>
+
+</div>
+###
 ---
 
 ## Notes
@@ -87,3 +171,5 @@ license_plate 0.0 0 -1.0 45.00 60.00 100.00 120.00 0 0 0 0 0 0
 
 ## License
 This project is licensed under the MIT License. Feel free to use and modify it as needed.
+
+
