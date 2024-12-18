@@ -21,14 +21,14 @@ This repository contains a Python script to convert YOLO-format labels into KITT
 
 ### Python Dependencies
 Make sure you have the following Python packages installed:
-- `Pillow`
+- `pillow`
 - `tqdm`
 - `argparse`
 - `json`
 
 To install these dependencies, run:
 ```bash
-pip install Pillow tqdm
+pip install Pillow tqdm argparse json
 ```
 
 ---
