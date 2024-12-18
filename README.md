@@ -145,7 +145,7 @@ python visualize_yolo_labels.py \
     --output-folder "./result_viz_yolo" \
     --class-names "licence plate"
 ```
-
+<div style="text-align: center;">
 <table>
   <tr>
     <td style="text-align: center;">
@@ -158,7 +158,7 @@ python visualize_yolo_labels.py \
     </td>
   </tr>
 </table>
-
+</div>
 
 ---
 
