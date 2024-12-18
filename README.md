@@ -28,7 +28,7 @@ Make sure you have the following Python packages installed:
 
 To install these dependencies, run:
 ```bash
-pip install Pillow tqdm argparse json
+pip install pillow tqdm argparse json
 ```
 
 ---
